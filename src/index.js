@@ -5,11 +5,12 @@ import html from './images/html.jpg'
 import css from './images/css.png'
 import js from './images/js.png'
 import bs from './images/bs.png'
-import like from './images/like.png'
-import comment from './images/comment.png'
-import share from './images/share.png'
 import profile from './images/profile.jpg'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faThumbsUp , faComment ,faShare } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCheckSquare, faThumbsUp , faComment ,faShare)
 
 const newDate = new Date()
 const day = newDate.getDate()
@@ -35,7 +36,6 @@ function Nav() {
       <ul>
         <li>Home</li>
         <li>About</li>
-        <li>Services</li>
         <li onClick={theme}>{`${lightedness} Theme`}</li>
       </ul>
     </div>
@@ -75,9 +75,9 @@ function Post(props) {
       </div>
       <div className='post-foot'>
         <div className='actions'>
-          <span><img src={like}></img>like</span>
-          <span><img src={comment}></img>Comment</span>
-          <span><img src={share}></img>Share</span>
+          <span><FontAwesomeIcon icon="thumbs-up" />like</span>
+          <span><FontAwesomeIcon icon="comment" />Comment</span>
+          <span><FontAwesomeIcon icon="share" />Share</span>
         </div>
         <div className='cmnt'>
           <img className='cmnt-img' src={props.profile}></img>
