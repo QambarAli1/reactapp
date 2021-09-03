@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-import anony1 from './images/anony1.jpg'
-import anony2 from './images/anony2.jpg'
-import anony3 from './images/anony3.jpg'
-import anony4 from './images/anony4.jpg'
-
 import html from './images/html.jpg'
 import css from './images/css.png'
 import js from './images/js.png'
@@ -17,24 +11,45 @@ import share from './images/share.png'
 import profile from './images/profile.jpg'
 
 
-
-
-
-// import { icon1 } from '../node_modules/react-icons/lib'
-
 const newDate = new Date()
 const day = newDate.getDate()
 const month = newDate.getMonth()
 const year = newDate.getFullYear()
 
-function Profile(props){
+function Nav() {
+  const [light , themeChange] = React.useState(true);
+  const lightedness = light ? "Light" : "Dark";
+  const theme = ()=>{
+    themeChange(!light)
+    if(light){
+      document.body.classList.remove('light-col')
+      document.body.classList.add('dark-col')
+    }
+    if(!light){
+      document.body.classList.remove('dark-col')
+      document.body.classList.add('light-col')
+    }
+  }
+  return <div>
+    <div className={`navbar ${lightedness}`}>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li onClick={theme}>{`${lightedness} Theme`}</li>
+      </ul>
+    </div>
+  </div>
+}
+
+function Profile(props) {
   return <div className='profile'>
     <div className='cover'>
-        <div className='profile-pic'>
+      <div className='profile-pic'>
 
-        </div>
+      </div>
     </div>
-    <div className='username'>
+    <div className='username' id='username'>
       <h1>Qambar Ali</h1>
     </div>
   </div>
@@ -42,12 +57,12 @@ function Profile(props){
 
 function Post(props) {
   return <div className='main-div'>
-    <div className='postDiv'>
+    <div className='postDiv' id='postDiv'>
       <div className='post-head'>
         <img className='profile-img' src={props.profile}></img>
         <span className='nameanddate'>
           <h3>{props.name}</h3>
-          <p className='postDate'> {day}/{month+1}/{year}</p>
+          <p className='postDate'> {day}/{month + 1}/{year}</p>
         </span>
         <br />
       </div>
@@ -76,6 +91,7 @@ function Post(props) {
 
 ReactDOM.render(
   <div>
+    <Nav />
     <Profile />
     <Post name='Qambar Ali' profile={profile} bodyimg={html} placeholder='Comment on the post'
       para={` HTML (Hypertext Markup Language) is the code that is used to structure a web page

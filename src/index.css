@@ -1,6 +1,21 @@
 body{
   margin: 0;
   padding: 0;
+  cursor: pointer;
+}
+
+.navbar{
+  padding: 0px;
+  margin-top: -16px !important;
+  color: black;
+  background-color: white;
+  height: 50px;
+}
+.navbar ul li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px;
+  margin-left: 30px;
 }
 .profile{
   display: flex;
@@ -32,7 +47,7 @@ body{
   padding: 10px;
   width: 500px;
   box-shadow: 5px 10px 8px #888888;
-  background-color: rgb(243, 243, 243);
+  /* background-color: rgb(243, 243, 243); */
 }
 .main-div{
   display: flex;
@@ -89,7 +104,7 @@ body{
 }
 .actions{
   padding: 7px;
-  background-color: rgb(235, 227, 227);
+  /* background-color: rgb(235, 227, 227); */
 }
 .actions span img{
   width: 30px ;
@@ -114,4 +129,14 @@ body{
     
   }
   
+}
+
+
+.dark-col , .Dark{
+  background-color: black !important;
+  color: white;
+}
+.light-col , .Light{
+  background-color: rgb(213, 220, 223);
+  color: black;
 }
